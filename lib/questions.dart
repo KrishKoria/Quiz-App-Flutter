@@ -4,8 +4,8 @@ import 'package:quiz_app/custom_answer_button.dart';
 import 'package:quiz_app/data/questions_list.dart';
 
 class Questions extends StatefulWidget {
-  const Questions({super.key});
-
+  const Questions(this.chosenAnswer, {super.key});
+  final void Function(String answer) chosenAnswer;
   @override
   State<Questions> createState() {
     return _QuestionsState();
@@ -14,7 +14,8 @@ class Questions extends StatefulWidget {
 
 class _QuestionsState extends State<Questions> {
   var currentQuestionIndex = 0;
-  void answeredQuestion() {
+  void answeredQuestion(String selectedAnswer) {
+    widget.chosenAnswer(selectedAnswer);
     setState(() {
       currentQuestionIndex++;
     });
@@ -46,7 +47,7 @@ class _QuestionsState extends State<Questions> {
               (answer) {
                 return CustomAnswerButton(
                   answerText: answer,
-                  onClick: answeredQuestion,
+                  onClick: () => answeredQuestion(answer),
                 );
               },
             ),
