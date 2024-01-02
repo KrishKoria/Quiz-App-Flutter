@@ -7,7 +7,7 @@ class QuestionModel {
   final String question;
   final List<String> answer;
 
-  List<String> getshuffledAnswer() {
+  List<String> get shuffledAnswer {
     final shuffledList = List.of(answer);
     shuffledList.shuffle();
     return shuffledList;
