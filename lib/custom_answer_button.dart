@@ -9,17 +9,23 @@ class CustomAnswerButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onClick,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: const Color.fromARGB(255, 64, 7, 138),
-        foregroundColor: const Color.fromARGB(255, 238, 215, 253),
-        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: ElevatedButton(
+        onPressed: onClick,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: const Color.fromARGB(255, 64, 7, 138),
+          foregroundColor: const Color.fromARGB(255, 238, 215, 253),
+          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+        ),
+        child: Text(
+          answerText,
+          textAlign: TextAlign.center,
         ),
       ),
-      child: Text(answerText),
     );
   }
 }
